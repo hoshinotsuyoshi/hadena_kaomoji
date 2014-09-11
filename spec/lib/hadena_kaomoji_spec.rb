@@ -57,6 +57,14 @@ describe 'HadenaKaomoji::Expression' do
       it { expect(@he =~ %q|（ω）| ).to equal 0 }
     end
 
+    context %q|given (・∀・)| do
+      it { expect(@he =~ %q|(・∀・)| ).to equal 0 }
+    end
+
+    context %q|given (∀)| do
+      it { expect(@he =~ %q|(∀)| ).to equal 0 }
+    end
+
     context %q|given ^^;| do
       it { expect(@he =~ %q|^^;| ).to be nil }
     end
@@ -113,6 +121,14 @@ describe 'HadenaKaomoji::Expression' do
 
     context %q|given （ω）| do
       it { expect(@he.match(%q|（ω）| )[0]).to eq %q|（ω）| }
+    end
+
+    context %q|given (・∀・)| do
+      it { expect(@he.match(%q|(・∀・)| )[0]).to eq %q|(・∀・)| }
+    end
+
+    context %q|given (∀)| do
+      it { expect(@he.match(%q|(∀)| )[0]).to eq %q|(∀)| }
     end
 
     context %q|given ^^;| do
