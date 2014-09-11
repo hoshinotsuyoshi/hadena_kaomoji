@@ -21,6 +21,10 @@ describe 'HadenaKaomoji::Expression' do
       it { expect(@he =~ %q|（ΦωΦ)| ).to equal 0 }
     end
 
+    context %q|given （ΦωΦ）| do
+      it { expect(@he =~ %q|（ΦωΦ）| ).to equal 0 }
+    end
+
     context %q|given ^^;| do
       it { expect(@he =~ %q|^^;| ).to be nil }
     end
@@ -37,6 +41,10 @@ describe 'HadenaKaomoji::Expression' do
 
     context %q|given （ΦωΦ)| do
       it { expect(@he.match(%q|（ΦωΦ)| )[0]).to eq %q|（ΦωΦ)| }
+    end
+
+    context %q|given （ΦωΦ）| do
+      it { expect(@he.match(%q|（ΦωΦ）| )[0]).to eq %q|（ΦωΦ）| }
     end
 
     context %q|given ^^;| do

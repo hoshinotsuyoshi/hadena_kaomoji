@@ -1,6 +1,5 @@
-require "hadena_kaomoji/version"
+require 'hadena_kaomoji/version'
 
 module HadenaKaomoji
-  Expression = /[\(（](ΦωΦ\)|\*\^_\^\*）)/
+  Expression = /[\(（](ΦωΦ|\*\^_\^\*)[\)）]/
 end
-
