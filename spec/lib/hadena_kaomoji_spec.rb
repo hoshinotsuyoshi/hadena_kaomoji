@@ -8,9 +8,17 @@ describe 'HadenaKaomoji::Expression' do
     expect(@he).to be_a Regexp
   end
 
-  describe '.=~' do
+  describe '#=~' do
     context %q|given （*^_^*）| do
       it { expect(@he =~ %q|（*^_^*）| ).to equal 0 }
+    end
+  end
+
+  describe '#match' do
+    context %q|given （*^_^*）| do
+      it do
+        expect(@he.match(%q|（*^_^*）|)[0]).to eq %q|（*^_^*）|
+      end
     end
   end
 end
