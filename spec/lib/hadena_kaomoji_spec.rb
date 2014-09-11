@@ -12,13 +12,19 @@ describe 'HadenaKaomoji::Expression' do
     context %q|given （*^_^*）| do
       it { expect(@he =~ %q|（*^_^*）| ).to equal 0 }
     end
+
+    context %q|given ^^;| do
+      it { expect(@he =~ %q|^^;| ).to be nil }
+    end
   end
 
   describe '#match' do
     context %q|given （*^_^*）| do
-      it do
-        expect(@he.match(%q|（*^_^*）|)[0]).to eq %q|（*^_^*）|
-      end
+      it { expect(@he.match(%q|（*^_^*）|)[0]).to eq %q|（*^_^*）| }
+    end
+
+    context %q|given ^^;| do
+      it { expect(@he.match(%q|^^;|)).to be_nil }
     end
   end
 end
