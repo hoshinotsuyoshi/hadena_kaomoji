@@ -44,6 +44,10 @@ describe 'HadenaKaomoji::Expression' do
     context %q|given ^^;| do
       it { expect(@he =~ %q|^^;| ).to be nil }
     end
+
+    context %q|given （.. ）| do
+      it { expect(@he =~ %q|（.. ）| ).to be nil }
+    end
   end
 
   describe '#match' do
@@ -81,6 +85,10 @@ describe 'HadenaKaomoji::Expression' do
 
     context %q|given ^^;| do
       it { expect(@he.match(%q|^^;|)).to be_nil }
+    end
+
+    context %q|given （.. ）| do
+      it { expect(@he.match(%q|（.. ）|)).to be_nil }
     end
   end
 end
